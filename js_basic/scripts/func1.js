@@ -25,7 +25,7 @@ function func1(){
 //func1(); // 호출은 함수 밖에서
 //func1(); // 호출 갯수는 프로그래밍 실행 갯수만큼
 function func2(){//생성
-    let a = 10; // 함수 내 변수 생성 가능
+    let a = 10; // 함수 내 변수 생성 가능(지역 변수)
     let b = a++;
     console.log(a+b);
 }//생성 함수 종료

@@ -162,11 +162,12 @@ HTML CODE
 - 1부터 인식하는 속성 - length (문자열의 길이 체크)
 
 
-### 변수 스코프 (데이터 접근 가능 위치)
+### 변수 스코프(scope) (데이터 접근 가능 위치)
 - 스코프 : 변수 값이 접근할 수 있는 위치
     - 전역 스코프 = 전역 변수 : 변수는 코드 어느 곳에나 접근 가능
     - 지역 스코프 = 지역 변수 : 변수가 선언된 블록 내부만 접근 가능
         - 함수, 루프 등 {중괄호}로 구분되는 모든 영역
+        - 블록 영역 : 함수, 루프 등 {중괄호}로 구분되는 모든 영역
 
 ### 자바스크립트 내부 구조 메모리
 - 콜스택 (call stack) : 원시형 데이터를 가진 변수가 저장되는 메모리(공간) - 값 하나
@@ -372,6 +373,83 @@ console.log(`${dan99}x2=${dan99*2}`);
 ### 알고리즘
 - 컴퓨터가 수행하는 계산식
 - 주요 특성 : 반복
+- 매개 변수 (전달 인자)
+    - 알고리즘 내 일부 데이터 수정
+    - 함수가 반복될 때마다 달라질 수 있는 데이터
+    - 함수 알고리즘이 실행될 때 매개변수에 구체적인 값 대입
+    - 동일한 함수 안에서 매개변수만 달라짐
+
+### 매개 변수
+- 함수 내 전달하는 인자
+- 외부에서 함수로 특정 데이터를 전달하는 방법
+- 지역 변수 처리
+- 함수의 효율 상승
+- 생성과 동시에 기본값 설정 가능 (매개변수=기본값)
+- `function coffeeFunc1(){}` 함수 생성 -> 실행 결과 항상 같으므로 매개변수 선언 x
+- `function coffeeFunc1(data){}` 함수 생성 -> 결과 매번 달라지는 데이터있으므로 매개 변수 생성
+- `function coffeeFunc1(data1, data2){}` 함수 생성 -> 결과 매번 달라지는 데이터 2개있으므로 매개 변수 2개 생성
+- 함수 생성 후 달라지는 데이터 1개에 맞춘 매개변수 1개 생성 완, 이후 함수 호출하고 매개변수에 대입값 10 입력
+- 매개변수 생성 후 매개변수에 값 대입되면 반드시 함수 내부에 매개변수 활용한 결과식 작성
+- 매개변수 사용 시 호출할 때 매개변수에 전달할 대입값을 작성 안 해도 함수가 실행되려면 매개변수에 기본값 작성
+```
+function 함수명(생성매개변수){return실행}
+함수명(매개변수 대입값)
+```
+```
+function storyFunc(src){
+    let person = ['헨젤', '그레텔'];
+    //let src = '빵부스러기';
+    // 헨젤과 그레텔이 조약돌 을/를 이용해서 집을 찾아갔습니다.
+    // 헨젤과 그레텔이 빵부스러기 을/를 이용해서 집을 찾아갔습니다.
+    console.log(`${person[0]}과 ${person[1]}이 ${src}을/를 이용해서 집을 찾아갔습니다.`);
+}
+storyFunc('조약돌');
+storyFunc('빵 부스러기');
+```
+```
+let x = 1;
+let y;
+function func1(){ // 함수 대기 상태 func1
+    y = 5;
+    console.log(x+y);
+}
+function func2(){ // 함수 대기 상태 func1
+    let z = 10;
+    func1 (); // func2 함수 대기 안 func1 함수 호출 (func2 대기 상태로 실행 안 됨)
+    console.log(x+y+z);
+}
+func2() // func2 함수 호출 (func2 안 func1도 함께 절차에 맞게 실행)
+```
+```
+function coffeeFunc1(data1=1, data2=0.5){
+    let water = data1+'컵 물을 채운다'
+    let espresso = `${data2}샷 에스프레소를 넣는다`
+    console.log(water, espresso);
+}
+coffeeFunc1(2, 1)
+coffeeFunc1()
+```
+```
+function order1(data3, data4=1){
+    const msg = '잔 주문 완료되었습니다.'
+    console.log(data3, data4, msg)
+}
+order1('카페라떼')
+order1('아메리카노', 2)
+order1('녹차라떼')
+order1('아메리카노', 4)
+```
+```
+function order2(data5, data6, data7=1){
+    const msg2 = '잔 주문 완료되었습니다.';
+    const type = ['따뜻한', '차가운']
+    console.log(type[data5], data6, data7, msg2);
+}
+order2(0, '카페라떼', 2)
+order2(1, '아메리카노')
+order2(0, '녹차라떼', 2)
+order2(1, '아메리카노')
+```
 
 ### 함수의 종류
 - 재사용 함수
@@ -389,10 +467,56 @@ console.log(`${dan99}x2=${dan99*2}`);
         - 매개 변수, 인수 등 여러가지 용어 사용
         - 함수 내 데이터를 전달하는 변수명
         - 전달 데이터가 많을 때 객체 타입으로 전달
+        - 필요할 때만 작성
     - {} : 함수 영역의 시작과 끝을 나타내며 반복적인 실행 내용 작성
     - 생성과 호출이 별개
     - 호출 갯수는 프로그래밍 실행 갯수만큼
     - 함수 내 변수 생성 가능 (지역 변수)
+```
+let d = 5;
+let e = 15;
+let f; // 전역 변수 생성 (값 선언 안 된 상태에서는 undefined)
+let g;
+scopeTest(); //함수호출
+// 함수 대기상태에서 실행 안 됨, 호출 해야 실행 가능
+console.log(f); // 호출 이후 결과이므로 값 실행 가능
+function scopeTest(){ // 함수 호출 전 대기 상태 함수 생성 구조
+    f = 25;
+    g = 35;
+    console.log(d+f);
+    console.log(e+g);
+}
+console.log(g+d);
+console.log(d+e); 
+```
+
+### 함수 - 리턴값
+- 함수 내에서 결과값을 리턴하면 함수 외부에서 리턴 값을 받아 출력 : return number;
+- 리턴 뒤 아무값도 입력하지 않으면 값을 돌려주는 뜻이 아닌 함수 종료 의미 : return;
+- 함수 내에서 return을 작성하면 내부의 데이터를 함수 외부로 반환해 실행 또는 데이터 전달
+```
+function plusFunc(num){
+    let total = num+1;
+    return total; 
+    // 리턴으로 실행함수가 아닌 값만 보내면 호출할 때 리턴이 보낸 반환값을 묶는 실행함수 별도 작성
+}
+plusFunc(2);
+console.log(plusFunc(2));
+```
+```
+let dan99 = ''; // 전역변수 (초기값) : 문자 데이터 입력 예정
+function dan99Func1(num){
+    dan99 = `${num}X1=${num*1} `;
+    dan99 += `${num}X2=${num*2} `;
+    // dan99 = dan99 + `${num}X2=${num*2} `;
+    // 기존 dan99 변수에 우측 데이터 더해서 대입
+    dan99 += `${num}X2=${num*3} `;
+    return dan99;
+}
+dan99Func1(9);
+console.log(dan99Func1(9))
+console.log(dan99Func1(5))
+```
 
 ### MEMO
 - prompt 값은 문자열로 인식
