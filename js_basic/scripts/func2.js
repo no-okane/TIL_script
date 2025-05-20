@@ -193,3 +193,29 @@ function discount3(price){
     return discountResult3;
 }
 console.log(discount3(27000))
+
+
+console.log('====================================================');
+// 2025-05-20
+const greeting = function(){
+    console.log('hello');
+};
+greeting(); 
+
+
+console.log('====================================================');
+// 일반 함수
+console.log(bab(1))
+function bab(num){
+    return'밥'+num+'공기 주세요';
+}
+
+// 화살표 함수
+const bab2 = (num) => {return'밥'+num+'공기 주세요';}
+console.log(bab2(2));
+
+
+const kudasai = (oder) => {return oder+'주세요';}
+console.log(kudasai('밥'))
+console.log(kudasai('반찬'))
+console.log(kudasai('국'))
