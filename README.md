@@ -568,7 +568,10 @@ console.log(bab2(2));
 - 사용자에 따른 인쇄 제한이 있는 사이트라면 인쇄 내장함수를 변수에 담아야 함
 
 
+
 ### DOM (doucument Object Model)
+- html 태그에서 js로 제어하고 싶은 대상만 변수로 만듦
+-----
 - 노드(node) : DOM 트리를 구성하는 객체
 - html 요소 노드 : html 요소를 가리키는 객체
 - 텍스트 노드 : 텍스트를 가리키는 개겣
@@ -582,11 +585,27 @@ console.log(bab2(2));
 -----
 - 자바스크립트 style 속성을 이용한 css는 일반 css 선택자와 다르게 가장 우선순위가 높은 개념으로 적용
     - 적용 후 모습은 웹브라우저 개발자 도구에서 확인
-    - css 우선 순위 : 자바스크립트 스탕리 속성 > id > class > tag
+    - css 우선 순위 : 자바스크립트 스타일 속성 > id > class > tag
 -----
 - **querySelector** : 지정된 아이디, 클래스, 이름을 가진 첫 번째 html 요소를 찾아 html 노드로 변환
     - 여러 개의 노드 리스트를 변환할 수 있고 첫 번째 노드 리스트를 변환할 수 있음
 - **querySelectorAll** : 지정된 아이디, 클래스, 태그 이름을 가진 모든 html 요소를 찾아 html 노드로 인덱스와 함께 변환
+```
+html
+<header style="height:50px"></header>
+<main>
+	<p class="target1">*기준1*</p>
+	<p class="target2">*기준2*</p>
+</main>
+<footer style="height:50px"></footer>
+
+
+
+js dom
+const main = document.querySelector('main')
+const target1 = document.querySelector('.target1')
+const target2 = document.querySelector('.target2')
+```
 
 
 ### 형변환 메소드
@@ -605,3 +624,189 @@ console.log(bab2(2));
 console.log(`올해 당신의 나이는 ${age}살입니다.`);
 console.log(`내년 당신의 나이는 ${age+1}살입니다.`);
     ```
+
+### 이벤트
+- 이벤트 : 사용자의 동작에 따라 웹/앱 특정 결과 실행하는 행위
+    - ex) 이벤트 앞에 on을 붙이면 이벤트 리스너가 됨 (onclick)
+    - 리스너(listener) : 특정 이벤트 발생했을 때 실행할 함수
+
+### 마우스 이벤트
+- click : 특정 요소에 마우스로 클릭했을 때 이벤트 발생
+- mouseover : 특정 요소에 마우스 포인터 올라갔을 때 이벤트 발생
+- mouseout : 특정 요소에서 마우스 포인터가 벗어나는 경우 이벤트 발생
+- mouseup : 특정 요소를 마우스로 눌렀다가 떼어냈을 경우 이벤트 발생
+- mousemove : 특정 요소에서 마우스 포인터를 움직였을 때 이벤트 발생
+```
+<li><button type="button" id="payBtn" onmouseover="userPayMsg();">결제하기</button></li>
+
+
+const payBtn = document.querySelector('#payBtn');
+console.log(payBtn);
+function userPayMsg(){
+    return console.log('결제 완료되었습니다.')
+}
+
+const idBtn = document.querySelector('#idBtn');
+console.log(idBtn);
+function userIdCk(){
+    return console.log('아이디가 중복되지 않습니다. 사용하셔도 좋습니다.')
+}
+```
+
+
+
+### 키보드 이벤트
+- keydown : 특정 키를 눌렀을 경우 이벤트 발생
+- keyup : 특정 키를 눌렀다 떼었을 경우 이벤트 발생
+- keypress : 특정 키를 누른 상태의 경우 이벤트 발생
+```
+<li><input type="password" placeholder="비밀번호를 입력해주세요." name="user_pw" onkeyup="userPw12Msg()"></li>
+
+
+// 키보드이벤트
+// 리뷰 입력창에 키보드 눌렀을 때 [50자 이상 입력하세요.] 출력 알고리즘
+const userReviewInput = document.querySelector('input[name*=review]');
+console.log(userReviewInput);
+function userReview50Write(){
+    return console.log('50자 이상 입력하세요.');
+}
+
+// id 입력창 객체 준비 후 키보드를 아무키나 입력했을 때 [아이디는 영어로 시작해야 합니다.] 출력 알고리즘
+const userIdInput = document.querySelector('input[name*=id]');
+console.log(userIdInput);
+function userIdEngMsg(){
+    return console.log('아이디는 영어로 시작해야 합니다.')
+}
+
+// pw 입력창 객체 준비 후 키보드를 아무키나 입력했을 때 [비밀번호는 특수문자 포함 12자 이상 입력하세요.]
+const userPwInput = document.querySelector('input[name*=pw]');
+console.log(userPwInput);
+function userPw12Msg(){
+    return console.log('비밀번호는 특수문자 포함 12자 이상 입력하세요.')
+}
+```
+
+### 기타 이벤트
+- focus : 특정 요소에 포커스를 주었을 경우 이벤트 발생
+- blur : 특정 요소에 포커스가 벗어났을 경우 이벤트 발생
+- submit : submit 버튼 클릭했을 때 이벤트 발생
+- reset : reset 버튼 클릭했을 때 이벤트 발생
+- load : 페이지 로딩이 완료되었을 경우 이벤트 발생
+```
+<li><input type="number" name="product_num" value="1" onfocus="productNumFocusYellow()" onblur="productNumBlurWhite()"></li>
+
+
+
+userIdInput.style.outline='none';
+function userIdFocusGreen(){
+    return userIdInput.style.border = '3px solid green';
+}
+function userIdBlurGray(){
+    return userIdInput.style.border = '1px solid gray'
+}
+
+//productNumInput.style.outline='none';
+const productNumInput = document.querySelector('input[name=product_num]');
+console.log(productNumInput);
+function productNumFocusYellow(){
+    return productNumInput.style.backgroundColor = 'yellow';
+}
+function productNumBlurWhite(){
+    return productNumInput.style.backgroundColor = 'white';
+}
+```
+```
+// 문서가 로딩되었을 때 실행 함수
+function loadMsg(){
+    return alert('문서 로딩 완료')
+}
+```
+
+
+
+### 콜백 함수
+- 특정 이벤트 발생 시 해당 이벤트 처리 루틴
+- DOM 요소 .addEventListener(이벤트명, 실행함수명, 옵션)
+    - 이벤트명 : 자바 스크립트에서 발생하는 이벤트명
+    - 실행함수명 : 이벤트 발생 시 실행할 함수명
+    - 옵션 : 생략 가능, 자식과 부모 요소에서 발생하는 버블링 제어 위함
+```
+function first(){
+    alert('message');
+}
+eventBtn.addEventListener('click',first);
+```
+- addEnventListener 이벤트 작성 시 on 없이 이벤트만 작성
+```
+<dd><a href="#" class="google_join">구글 아이디로 가입하기</a></dd>
+
+//객->이->함
+const googleJoin = document.querySelector('.google_join');
+console.log(googleJoin);
+// 자바스크립트에 작성하는 객체 이벤트 문법
+// 객체.addEventListener('이벤트', 콜백함수);
+// addEnventListener 이벤트 작성 시 on 없이 이벤트만 작성
+googleJoin.addEventListener('click',googleGo);
+function googleGo(){
+    return window.open('https://accounts.google.com','_blank');
+}
+
+const naverJoin = document.querySelector('.naver_join');
+console.log(naverJoin);
+naverJoin.addEventListener('click',naverGo);
+function naverGo(){
+    return window.open('https://nid.naver.com/nidlogin.login','_black');
+}
+
+const kakaoJoin = document.querySelector('.kakao_join');
+kakaoJoin.addEventListener('click',kakaoGo);
+function kakaoGo(){
+    return window.open('https://accounts.kakao.com','_blank');
+}
+```
+```
+// 현재 페이지 변경 방법
+// 1 객체
+const fileLink = document.querySelector('.file_link');
+console.log(fileLink);
+// 2 이벤트
+fileLink.addEventListener('click',link0520);
+// 3 콜백함수
+// js에서 상대 경로 연결 시 js 파일 기준이 아닌 js가 연결된 html 파일이 저장된 위치를 기준으로 상대 경로 작성
+function link0520(){
+    return window.location.href='bom1.html';
+}
+
+const indexLink = document.querySelector('.index_link');
+console.log(indexLink);
+indexLink.addEventListener('click',indexLinkMove);
+function indexLinkMove(){
+    return window.location.href='index.html';
+}
+
+const readmeLink = document.querySelector('.readme_link');
+console.log(readmeLink);
+readmeLink.addEventListener('click',readmeLinkMove);
+function readmeLinkMove(){
+    return window.location.href='../README.md';
+}
+```
+```
+// 상품 수량 증가 알고리즘
+const numInput = document.querySelector('input[name=num]');
+const numBtn = document.querySelector('#num_btn');
+console.log(numInput, numBtn);
+//1 수량 초기값 1
+numInput.value = 1; // 초기값이므로 이벤트없이 바로 작성
+//2 + 버튼 클릭시
+numBtn.addEventListener('click',numPlus);
+function numPlus(){
+    //기존 인풋 값이 항상 1 증가
+    return numInput.value = ++numInput.value;
+}
+```
+
+
+### MEMO
+- js에서 상대 경로 연결 시 js 파일 기준이 아닌 js가 연결된 html 파일이 저장된 위치를 기준으로 상대 경로 작성
+
