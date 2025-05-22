@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/insta.css">
+
+    <script src="./scripts/insta.js" defer></script>
+</head>
+<body>
+    <main id="wrap">
+        <!-- 1================================================================== -->
+        <div id="top_wrap">
+            <div class="profile">
+                <a href="#">
+                    <span class="icon"><!-- img --></span>
+                    <em class="name">username</em>
+                    <span class="cerified">인증</span>
+                </a>
+            </div>
+            <button type="button" id="more">더 보기</button>
+        </div>
+
+        <!-- 2================================================================== -->
+        <div id="photo_wrap">
+            <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fHww" alt="비행기 안에서 바라본 모습">
+        </div>
+
+        <!-- 3================================================================== -->
+        <div id="menubtn_wrap">
+            <div class="left">
+                <a href="#" class="like"><img src="./images/icons/like_off.png" alt="좋아요"></a>
+                <a href="#" class="comment"><img src="./images/icons/comment_off.png" alt="댓글 달기"></a>
+                <a href="#" class="share"><img src="./images/icons/paper_off.png" alt="공유하기"></a>
+            </div>
+            <div class="right_bookmark"><a href="#"><img src="#" alt="북마크"></a></div>
+        </div>
+
+        <!-- 4================================================================== -->
+        <div id="contents_wrap">
+            <p class="story">드디어 떠난다!</p>
+            <p class="tag"><a href="#">#여행</a><a href="#">#어쩌고</a><a href="#">#저쩌고</a></p>
+            <p class="dayago">3DAYS AGO</p>
+        </div>
+    </main>
+</body>
+</html>

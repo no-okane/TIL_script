@@ -1,0 +1,98 @@
+body, html {background-color: #95efbd; padding: 0 10px;}
+#wrap {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 420px;
+    margin: 50px auto 0;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+    padding: 20px 30px;
+    
+    max-width: 420px; min-width: 320px;
+}
+/* 1=========================================================== */
+#wrap #top_wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+#wrap #top_wrap .profile {}
+#wrap #top_wrap .profile a {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 5px;
+}
+#wrap #top_wrap .profile a .icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: url(https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsfGVufDB8fDB8fHww) center / cover;
+}
+#wrap #top_wrap .profile a .name {
+    font-weight: 600;
+    color: #000;
+}
+#wrap #top_wrap .profile a .cerified {color: #14ce66; font-size: 0.75rem;}
+#wrap #top_wrap #more {
+    font-size: 0.75rem;
+}
+
+/* 2=========================================================== */
+#wrap #photo_wrap {}
+#wrap #photo_wrap img {
+    width: 100%;
+}
+
+/* 3=========================================================== */
+#wrap #menubtn_wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: px;
+}
+#wrap #menubtn_wrap .left {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 10px;
+    height: 20px;
+}
+#wrap #menubtn_wrap .left > * {width: 24px;}
+#wrap #menubtn_wrap .left img {width: 100%;}
+#wrap #menubtn_wrap .left .like {}
+#wrap #menubtn_wrap .left .like img {}
+#wrap #menubtn_wrap .left .comment {}
+#wrap #menubtn_wrap .left .comment img {}
+#wrap #menubtn_wrap .left .share {}
+#wrap #menubtn_wrap .left .share img {}
+#wrap #menubtn_wrap .right_bookmark {}
+#wrap #menubtn_wrap .right_bookmark a {}
+#wrap #menubtn_wrap .right_bookmark a img {}
+
+/* 4=========================================================== */
+#wrap #contents_wrap {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+#wrap #contents_wrap .story {
+    color: #000;
+}
+#wrap #contents_wrap .tag {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 5px;
+}
+#wrap #contents_wrap .tag a {
+    font-weight: 500;
+    color: #146ece;
+    background-color: #f5f5f5;
+    font-size: 0.875rem;
+}
+#wrap #contents_wrap .dayago {
+    font-size: 0.75rem;
+}

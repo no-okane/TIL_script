@@ -606,7 +606,14 @@ const main = document.querySelector('main')
 const target1 = document.querySelector('.target1')
 const target2 = document.querySelector('.target2')
 ```
-
+- 자바스크립트 내의 dom 지정 규칙
+    - html 태그의 class, name, id, value 등의 이름 규칙 : 영어소문자_영어소문자
+    - 자바스크립트의 함수 및 변수 이름 규칙 : camel 표기법
+    - 변수 등록 시 순서
+        1) `const 의미 있는 변수명 : document.querySelector('html 요소 또는 클래스, 아이디, 속성 선택자 등')`
+        2) `const userId = document.querySelector('li.active');`
+        3) `var pwIo = document.querySelector('input[type*=pass]');`
+        4) `let genderChk = document.querySelector('input[name=gender]');`
 
 ### 형변환 메소드
 - 암시적 형변환 : 스크립트가 사용자 동의 없이 자동으로 데이터 형태 결정
@@ -724,6 +731,21 @@ function loadMsg(){
 
 
 
+### 이벤트 객체
+- 사용자가 dom과 관련된 이벤트 발생 시 이벤트 관련 정보가 생성되는 것
+    - 예) 마우스 이벤트 발생 시 마우스 위치 정보, 키보드 이벤트 발생 시 어떤 키를 눌렀는지에 대한 정보
+- **이벤트 객체의 자주 사용되는 속성 및 함수**
+    - currentTarget : 현재 이벤트 처리 중 요소, 이벤트 핸들러 내부 this와 동일
+    - **perverntDefaylt()** : 이벤트의 기본 동작 취소
+    - target : 이벤트 실제 요소
+    - type : 발생한 이벤트 타입
+    - clientX, clientY : 마우스 이벤트 발생 시 클릭한 커서의 상대 좌표
+- 요소 속성 값 읽고 쓰기
+    - 요소명.속성명
+    - <a href="https://naver.com" id="link">naver</a>
+    - tag.href, tag.id -> 존재하지 않을 경우 Error 출력
+
+
 ### 콜백 함수
 - 특정 이벤트 발생 시 해당 이벤트 처리 루틴
 - DOM 요소 .addEventListener(이벤트명, 실행함수명, 옵션)
@@ -810,3 +832,34 @@ function numPlus(){
 ### MEMO
 - js에서 상대 경로 연결 시 js 파일 기준이 아닌 js가 연결된 html 파일이 저장된 위치를 기준으로 상대 경로 작성
 
+
+### MEMO
+- 링크 클릭 시 같은 화면에서 이동 (location)
+```
+const profileDOM = document.querySelector ('.profile a')
+console.log(profileDOM);
+profileDOM.addEventListener('click',profileDOMGo);
+function profileDOMGo(){
+    return window.location.href='insta_profile.html';
+}
+```
+- 더블 클릭 시 동적 변화 (dblclick)
+- 사진 두 번 터치 시 좋아요 자동 등록ㅇ
+```
+const photo = document.querySelector('#photo_wrap');
+const likeImg = document.querySelector('.like img')
+console.log(photo, likeImg);
+console.log(likeImg.src);
+//객체.속성 -> 속성 읽기
+// 객체.속성=값 -> 속성 값 변경
+photo.addEventListener('dblclick',likeOn);
+function likeOn(){
+    //console.log('test');
+    return likeImg.src='images/icons/like_on.png';
+}
+```
+- 좋아요 등록
+```
+위의 likeimg 활용
+likeImg.addEventListener('click',likeOn);
+```
