@@ -877,4 +877,3 @@ likeImg.addEventListener('click',function(e){
     likeOn();
 });
 ```
-    - 
