@@ -34,7 +34,9 @@ function likeOn(){
 // -> 콜백함수 호출이 아닌 익명 함수 또는 화살표 함수 사용
 // -> 익명 함수 또는 화살표 함수로 작성 시 이벤트 앞 객체정보가 함수의 매개변수로 자동 대입
 // -> 매개변수가 받은 정보를 확인하려면 매개변수에 변수명 작성하고 console.log()로 확인
-likeImg.addEventListener('click',function(){});
+likeImg.addEventListener('click',function(e){
+    console.log(e);
+});
 
 // 6 댓글 아이콘 터치 시 댓글 입력창 실행, 실행화면에서 바깥쪽 영역 터치 댓글 입력창 닫기 ㅇ - 페이지 제작 필요, 바깥쪽 영역 터치 시 닫힘 ㅇ
 // 7 댓글 아이콘 터치 시 공유 가능 계정들 표시된 창 실행 바깥쪽 영역 터치 시 닫힘 
