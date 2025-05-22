@@ -37,6 +37,7 @@ function likeOn(){
 likeImg.addEventListener('click',function(e){
     //console.log(e);
     e.preventDefault(); // 태그의 동적 기능 취소 (=a태그 새로고침 취소)
+    likeOn();
 });
 
 // 6 댓글 아이콘 터치 시 댓글 입력창 실행, 실행화면에서 바깥쪽 영역 터치 댓글 입력창 닫기 ㅇ - 페이지 제작 필요, 바깥쪽 영역 터치 시 닫힘 ㅇ

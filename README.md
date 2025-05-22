@@ -863,3 +863,18 @@ function likeOn(){
 위의 likeimg 활용
 likeImg.addEventListener('click',likeOn);
 ```
+- **a 태그로 클릭 시 새로고침 되어 스크롤이 위로 올라가는 문제 해결을 위한 방법**
+    - 콜백함수 호출이 아닌 익명 함수 또는 화살표 함수 사용
+    - 익명 함수 또는 화살표 함수로 작성 시 이벤트 앞 객체정보가 함수의 매개변수로 자동 대입
+        - 매개변수에 `e` 작성 후 함수 내에 `e.preverntDeFault()` 작성
+        - 예) 익명함수 : `a 객체.addEnventListener('click,function(e){e.preventDeFault();});`
+        - 예2) 화살표 함수 : `a객체.addEventListener('click',(e)=>e.preventDeFault())`
+    - 매개변수가 받은 정보를 확인하려면 매개변수에 변수명 작성하고 console.log()로 확인
+```
+likeImg.addEventListener('click',function(e){
+    //console.log(e);
+    e.preventDefault(); // 태그의 동적 기능 취소 (=a태그 새로고침 취소)
+    likeOn();
+});
+```
+    - 
