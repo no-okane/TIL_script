@@ -1,12 +1,13 @@
-body, html {padding: 0 10px; background-color: #f5f5f5; background-color: bisque;}
+body, html {padding: 0 10px; background-color: #f5f5f5; background-color: #ffe4c4;}
 main {
     max-width: 420px; min-width: 320px; margin: 30px auto;
+    height: 913px;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
     gap: 10px;
 
-    padding: 50px 30px;
+    padding: 60px 40px;
     background-color: #fff;
 }
 main h1 {
@@ -14,26 +15,56 @@ main h1 {
     font-weight: 700;
 }
 main p {font-size: 1.1rem;}
+main p:nth-of-type(1) {margin-bottom: ;}
+main .img {
+    background: url(../images/6454099.png) no-repeat center / cover;
+    background-size: 180px;
+    filter: invert(56%) sepia(0%) saturate(1%) hue-rotate(116deg) brightness(90%) contrast(91%);
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+}
 main .info {
-    padding: 30px 0px;
+    padding: 30px 0;
     display: flex;
     flex-flow: column nowrap;
-    gap: 10px;
+    gap: 40px;
 
 }
 main .info li {
-    width: 320px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: end;
+    gap: 20px;
+    width: calc(420px - 80px);
 }
-main .info li span {}
+main .info li span {
+    width: 30%;
+}
 main .info li input {
     padding: 5px 10px;
-    background-color: aqua;
+    border-bottom: 1px solid #bcbcbc;
+    width: calc(100% - 30%);
+    
 }
 main #result_btn {
     margin: 0 auto;
-    width: max-content;
+    width: calc(420px - 80px);
     background-color: bisque;
     padding: 20px 50px;
     border-radius: 10px;
 }
-main #result {}
+
+/* 자바스크립트에서 동적으로 생성한 html 속성 */
+main #result em:nth-of-type(1) {}
+main #result em:nth-of-type(2) {
+    color: rgb(255, 118, 118);
+    font-weight: 600;
+}
+main #result {
+    padding: 80px 0;
+    text-align: center;
+    line-height: 180%;
+    font-size: 1.3rem;
+    margin: 0 auto;
+}
