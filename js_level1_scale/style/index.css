@@ -15,11 +15,11 @@ main h1 {
     font-weight: 700;
 }
 main p {font-size: 1.1rem;}
-main p:nth-of-type(1) {margin-bottom: 100px;}
+main p:nth-of-type(1) {margin-bottom: 120px;}
 main .img {
     background: url(../images/6454099.png) no-repeat center / cover;
     background-size: 180px;
-    filter: invert(56%) sepia(0%) saturate(1%) hue-rotate(116deg) brightness(90%) contrast(91%);
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(312deg) brightness(102%) contrast(104%);
     width: 80%;
     height: 180px;
     margin: 0 auto;
@@ -29,7 +29,7 @@ main .info {
     padding: 30px 0;
     display: flex;
     flex-flow: column nowrap;
-    gap: 40px;
+    gap: 30px;
     margin-top: 20px;
 }
 main .info li {
@@ -46,10 +46,9 @@ main .info li input {
     padding: 5px 10px;
     border-bottom: 1px solid #bcbcbc;
     width: calc(100% - 30%);
-    
 }
 main #result_btn {
-    margin: 0 auto;
+    margin: 20px 0;
     width: calc(420px - 80px);
     background-color: bisque;
     padding: 20px 50px;
@@ -63,9 +62,9 @@ main #result em:nth-of-type(2) {
     font-weight: 600;
 }
 main #result {
-    padding: 50px 0;
+    
     text-align: center;
     line-height: 180%;
     font-size: 1.3rem;
-    margin: 0 auto;
+    margin: auto;
 }
