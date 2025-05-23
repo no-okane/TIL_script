@@ -1,0 +1,10 @@
+/* 기본==================================== */
+main {}
+main .design {}
+main .design a {}
+main .design img {}
+
+/* 팝업==================================== */
+main .popup_bg {}
+main .popup_bg .contents {}
+main .popup_bg .contents img {}
