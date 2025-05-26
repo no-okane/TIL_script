@@ -41,9 +41,9 @@ main .design img {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
     
     width: 600px;
-    margin: 0 auto;
+    margin: 50px auto;
     background-color: #fff;
-    height: 90vh;
+    height: auto;
     overflow: auto;
 }
 .popup_bg .contents::-webkit-scrollbar {
