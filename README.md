@@ -558,6 +558,18 @@ console.log(bab2(2));
 - const 변수 = (매개변수) => {return 함수 반환값}
 - 익명 함수 호출식 : 변수()
 
+
+
+### this
+- 함수가 호출될 때 해당 함수를 소유한 객체를 참조하는 키워드
+    - 객체 : input -> this는 iput 인식
+    - 객체 : button -> this는 button 인식
+- 화살표 함수는 상위 스코프의 this 사용
+    - 전역 스코프라면 this는 window 객체 인식
+    - 따라서 화살표 함수는 this 사용 안 함
+
+
+
 ### MEMO
 - prompt 값은 문자열로 인식
 - pronpt로 입력하는 값은 무조건 문자(string) 처리 -> 암시적 형변환
@@ -604,6 +616,7 @@ console.log(bab2(2));
 - **querySelector** : 지정된 아이디, 클래스, 이름을 가진 첫 번째 html 요소를 찾아 html 노드로 변환
     - 여러 개의 노드 리스트를 변환할 수 있고 첫 번째 노드 리스트를 변환할 수 있음
 - **querySelectorAll** : 지정된 아이디, 클래스, 태그 이름을 가진 모든 html 요소를 찾아 html 노드로 인덱스와 함께 변환
+    - 변수로 만든 DOM 요소가 여러개일 경우 이벤트는 인덱스를 사용해서 하나씩 개별 접근해야 함
 ```
 html
 <header style="height:50px"></header>
@@ -619,6 +632,15 @@ js dom
 const main = document.querySelector('main')
 const target1 = document.querySelector('.target1')
 const target2 = document.querySelector('.target2')
+```
+```
+const thubimage = document.querySelectorAll('.design a');
+console.log(thubimage);
+thubimage[0].addEventListener('click',popupBgShow);
+thubimage[1].addEventListener('click',popupBgShow);
+thubimage[2].addEventListener('click',popupBgShow);
+thubimage[3].addEventListener('click',popupBgShow);
+
 ```
 - 자바스크립트 내의 dom 지정 규칙
     - html 태그의 class, name, id, value 등의 이름 규칙 : 영어소문자_영어소문자
