@@ -354,7 +354,6 @@ console.log(`${dan99}x2=${dan99*2}`);
 ```
 
 
-
 ### 숫자 데이터
 - 정수, 실수, NaN(Not a Number)으로 숫자 데이터 구분
     - 수학 연산, 비교 연산, 조건문, 반복문 등 많은 정밀도 게산에 활용
@@ -913,3 +912,68 @@ likeImg.addEventListener('click',function(e){
     likeOn();
 });
 ```
+
+
+
+### 논리데이터 Boolean
+- 참 또는 거짓 두 가지 값 중 하나의 데이터 형식
+- 조건문, 논리연산자, 논리적 판단 등에 사용
+- False로 평가되는 값 : falsy
+    - 참으로 평가되는 값 : 거짓을 제외한 나머지, 빈 배열, 빈 객체는 true []//빈배열, {}// 빈객체
+- True로 평가되는 값 : Truthy
+    - 거짓으로 평가되는 값 : false, null, undefined, Nan, 0, "" 빈 문자열
+- Boolean() : 불린 함수 사용했을 때 falsy 값들은 false로, Truthy 값들은 true로 리턴
+
+
+### 비교 연산자
+- 두 값 이상을비교하여 그 괄과를 논리 데이터로 변환하는 연산자
+    - 일치 연산자
+        - x==y : x와 y의 값이 같다.
+            - ex) 5=="5" -> true
+        - x=== : x와 y의 값과 데이터 타입이 모두 같다. (엄격한 비교 연산자)
+            - ex) 5==="5" -> false
+    - 부등 연산자
+        - x!=y : x와 y의ㅓ 값이 같지 않다.
+            - ex) 5!="5" -> true
+        - x!==y : x와 y의 값과 데이터 타입이 모두 다르다. (엄격한 비교 연산자)
+            - ex) 5!=="5" -> true
+    -----
+    - x < y : x가 y보다 작다.
+        - ex) 3 < 5 -> true
+    - x > y : x가 y보다 크다.
+        - ex) 7 > 10 -> false
+    - x >= y : x가 y보다 크거나 같다.
+        - ex) 10 >= 10 -> true
+    - x <= y : x가 y보다 작거나 같다.
+        - ex) 10 <= 10 -> true
+    -----
+
+
+### 논리 연산자
+- AND(&&) : 양쪽 피연산자가 모두 참일 때 결과는 참
+    - ex) x==y && == z
+        - true && true   // true (두 값이 모두 true니까 true)
+        - false && true  // false (하나는 false라서 false)
+        - true && false  // false (하나는 false라서 false)
+        - false && false // false (둘 다 false니까 false)
+- OR(||) : 양쪽 피연산자 중 하나라도 참이면 결과가 참
+    - ex) x==y || y==z
+        - true || true   // true (하나라도 true니까 true)
+        - false || true  // true (하나가 true니까 true)
+        - true || false  // true (하나가 true니까 true)
+        - false || false // false (둘 다 false라서 false)
+- NOT(!) : 피연산자의 논리 값을 반전, 참이면 거짓을 반환
+    - ex) x!
+        - !true   // false (true를 반대로 바꿔서 false)
+        - !false  // true  (false를 반대로 바꿔서 true)
+- 자바 스크립트의 논리연산자는 무조건 결과값으로 true, false가 못 나오는 상황이라면 양쪽 피연산자 값들 중 한 쪽을 선택하여 출력하는 방식으로 동작
+
+
+### 조건문
+- 조건문 == 분기문 : 어떤 특정 조건에 따라서 수행 루트를 분기하여 처리하는 문법
+- 조건 if문 : 주어진 조건에 따라 참/거짓으로 나뉠 때 참에 댜한 결과 실행
+- if문 사용 방법 : `if(수행조건){수행하고 싶은 일}`
+    1) if문 괄호 안에 수행조건 작성
+    2) 수행조건을 만족하면 그 결과를 true로 리턴
+    3) 수행하고 싶은 일 수행
+    4) 수행 조건을 만족하지 않으면 false를 리턴
