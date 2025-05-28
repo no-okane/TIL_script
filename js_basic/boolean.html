@@ -53,9 +53,82 @@
         if(null){
             console.log('조건이 참일 때 실행되는 문구')
         }
+        console.log('조건 공부 ==================');
+        // if (조건식) {조건식 결과가 참일 때 실행되는 스크립트}
+        /* const userId = prompt('아이디를 입력하세요'); */
+        /* if(userId){
+            alert(userId+'님 안녕하세요.');
+        } */
+        // 관리자 아이디 : admin
+        /* if(userId == 'admin'){
+            alert('관리자님 어서오세요');
+        } */
+        // 관리자가 아닌 사람이 접속하면 일반 사용자로 판단해서 인사하는 알고리즘
+        /* if(userId !== 'admin'){
+            alert('회원님 어서오세요');
+        } */
+       /* 관리자가 동일한 아이디를 사용할 수 없는 아이디 중복 확인 알고리즘 */
         </script>
 </head>
 <body>
+    <div id="join">
+        <input type="text" name="user_id" id="" placeholder="아이디를 입력하세요">
+        <button type="button" id="id_overlap_btn">아이디 중복 확인</button>
+        <p class="overlap_error_msg"><!-- 오류 메시지 출력 위치 --></p>
+    </div>
+    <!-- 관리자가 동일한 아이디를 사용할 수 없는 아이디 중복 확인 알고리즘
+    1. 사용자가 아이디 입력
+    2. 아이디 중복 확인 버튼 클릭
+    3. 사용자가 입력한 아이디가 admin이라면
+    4. 오류 메시지 출력 > 이미 사용 중인 아이디입니다. 다른 아이디를 입력하세요.
+    -->
+
+    <!-- =========================================================== -->
+    <div class="print">
+        <input type="number" name="" id="page_num" value="1">
+        <button type="button" id="print_btn">인쇄</button>
+    </div>
+    <!-- 2장 이상 입력 후 인쇄 버튼 클릭 시 인쇄 가능 window.print()
+    2장 미만일 경우 '2장부터 인쇄 가능합니다' 경고 메시지 출력 -->
     
+    <script>
+        const userid = document.querySelector('#join input[name=user_id]');
+        const idOverlapBtn = document.querySelector('#join #id_overlap_btn');
+        const overlapMsg = document.querySelector ('#join .overlap_error_msg');
+        console.log(userid,idOverlapBtn,overlapMsg);
+
+        idOverlapBtn.addEventListener('click',idChk);
+        function idChk(){
+            console.log(userid.value);
+            if(userid.value == 'admin'){
+                return overlapMsg.textContent =  '이미 사용 중인 아이디입니다. 다른 아이디를 입력하세요.'
+            }
+        }
+        function idChk(){
+            console.log(userid.value);
+            if(userid.value == ''){
+                return overlapMsg.textContent =  '아이디는 1~12자 사이로 입력해주세요.'
+            }
+        }
+
+        // 인쇄 알고리즘
+        const pageNum = document.querySelector('.print #page_num');
+        const printBtn = document.querySelector('.print #print_btn');
+        console.log(pageNum,printBtn);
+
+        printBtn.addEventListener('click',pageChk);
+        function pageChk(){
+            console.log(pageNum.value);
+            if(pageNum.value >= 2){
+                return window.print();
+            }
+        }
+        function pageChk(){
+            console.log(pageNum.value);
+            if(pageNum.value <= 2){
+                return alert('2장부터 인쇄 가능합니다.');
+            }
+        }
+    </script>
 </body>
 </html>

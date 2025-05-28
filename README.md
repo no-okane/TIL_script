@@ -933,7 +933,7 @@ likeImg.addEventListener('click',function(e){
         - x=== : x와 y의 값과 데이터 타입이 모두 같다. (엄격한 비교 연산자)
             - ex) 5==="5" -> false
     - 부등 연산자
-        - x!=y : x와 y의ㅓ 값이 같지 않다.
+        - x!=y : x와 y의 값이 같지 않다.
             - ex) 5!="5" -> true
         - x!==y : x와 y의 값과 데이터 타입이 모두 다르다. (엄격한 비교 연산자)
             - ex) 5!=="5" -> true
@@ -977,3 +977,28 @@ likeImg.addEventListener('click',function(e){
     2) 수행조건을 만족하면 그 결과를 true로 리턴
     3) 수행하고 싶은 일 수행
     4) 수행 조건을 만족하지 않으면 false를 리턴
+
+
+```
+/* 관리자가 동일한 아이디를 사용할 수 없는 아이디 중복 확인 알고리즘 */
+    const userid = document.querySelector('#join input[name=user_id]');
+    const idOverlapBtn = document.querySelector('#join #id_overlap_btn');
+    const overlapMsg = document.querySelector ('#join .overlap_error_msg');
+    console.log(userid,idOverlapBtn,overlapMsg);
+
+    idOverlapBtn.addEventListener('click',idChk);
+    function idChk(){
+        console.log(userid.value);
+        if(userid != 'admin'){
+            return overlapMsg.textContent =  '이미 사용 중인 아이디입니다. 다른 아이디를 입력하세요.'
+        }
+    }
+
+    function idChk(){
+        console.log(userid.value);
+        if(userid.value == ''){
+            return overlapMsg.textContent =  '아이디는 1~12자 사이로 입력해주세요.'
+        }
+    }
+```
+- if 동시 동작 x 순차적으로 동작
