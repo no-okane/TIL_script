@@ -694,6 +694,7 @@ function userIdCk(){
     return console.log('아이디가 중복되지 않습니다. 사용하셔도 좋습니다.')
 }
 ```
+-
 
 
 
@@ -911,6 +912,121 @@ likeImg.addEventListener('click',function(e){
     e.preventDefault(); // 태그의 동적 기능 취소 (=a태그 새로고침 취소)
     likeOn();
 });
+```
+- 갤러리 만들기1
+```
+// 변수
+const thubimage = document.querySelectorAll('.design a');
+const popupBg = document.querySelector('.popup_bg');
+console.log(thubimage, popupBg);
+
+// 팝업 숨기기 popupbg
+popupBg.style.display='none';
+
+// 썸네일 이미지 클릭 시 팝업 popupbg 보이기
+// 대상 이미지가 출력되게 
+// 클릭한 대상 이미지 경로 체크 -> 경로를 팝업 이미지의 경로에 대입
+// 변수로 만든 DOM 요소가 여러개일 경우 이벤트는 인덱스를 사용해서 하나씩 개별 접근해야 함
+
+function popupBgShow(target){
+    //console.log('함수 시작 위치 에러 체크============');
+    //console.log(popupBg.children[0]);//정상, 오류 없음
+    popupBg.style.display='flex';
+    popupBg.children[0].children[0].src = target.children[0].src;
+    return
+}
+
+
+thubimage[0].addEventListener('click',function(){
+    //console.log(0); //작동 테슷
+    //console.log(this); //이벤트 객체 자동 인식하는지 체크
+    //console.log(this.children[0].src);
+    //console.log(popupBg.children[0].children[0].src);
+    popupBgShow(this);//팝업 출력 함수 호출
+    
+});
+thubimage[1].addEventListener('click',function(){
+    popupBgShow(this);//팝업 출력 함수 호출
+});
+thubimage[2].addEventListener('click',function(){
+    popupBgShow(this);
+});
+thubimage[3].addEventListener('click',function(){
+    popupBgShow(this);
+});
+
+// 배경popupbg 클릭 시 팝업 popupbg 숨기기
+popupBg.addEventListener('click',popupBgOut);
+function popupBgOut(){
+    return popupBg.style.display='none';
+}
+```
+- 갤러리 만들기2
+```
+// 작은 썸네일 이미지 마우스 올렸을 때 이벤트 시 큰 이미지 변경
+// 1) 변수 생성
+const thum = document.querySelectorAll('.left_thumnail .small a img');
+const bigThum = document.querySelector('.left_thumnail .big a img');
+// 1-1) 변수 오류 확인
+console.log(thum, bigThum);
+// memo : 콘솔 확인 시 1개의 dom 요소가아닌 [index] 표시된 여러 개 dom 요소로 출력될 때는 실제 사용 시 요소 [index]를 붙여서 사용해야 함
+
+// thum4에 마우스를 올리면 -> big 이미지의 src 속성값이 big4로 변경
+// 2) 이벤트와 함수 생성
+thum[0].addEventListener('mouseover',function(){bigThumSrc(1)});
+thum[1].addEventListener('mouseover',function(){bigThumSrc(2)});
+thum[2].addEventListener('mouseover',function(){bigThumSrc(3)});
+thum[3].addEventListener('mouseover',function(){bigThumSrc(4)});
+thum[4].addEventListener('mouseover',function(){bigThumSrc(5)});
+function bigThumSrc (num){
+    // 둘 중 하나 방법 택 1
+    // return bigThum.src = "./images/big"+num+".jpg"
+    return bigThum.src = `./images/big${num}.jpg`
+}
+```
+- 갤러리2 응용
+```
+// 1) 변수 생성
+const thum = document.querySelectorAll('.small a');
+const bigThum = document.querySelector('.big a img');
+// 1-1) 변수 오류 확인
+console.log(thum, bigThum);
+
+thum[0].style.border = '3px solid #0aa5ff'
+thum[0].addEventListener('mouseover',function(){bigThumSrcBorder(1, this)});
+thum[1].addEventListener('mouseover',function(){bigThumSrcBorder(2, this)});
+thum[2].addEventListener('mouseover',function(){bigThumSrcBorder(3, this)});
+thum[3].addEventListener('mouseover',function(){bigThumSrcBorder(4, this)});
+thum[4].addEventListener('mouseover',function(){bigThumSrcBorder(5, this)});
+function bigThumSrcBorder (num, target){
+    // 사용자가 마우스 올리는 순서를 정의할 수 없기 때문에 전부 초기화 기준으로 설정
+    thum[0].style.border = 'none'
+    thum[1].style.border = 'none'
+    thum[2].style.border = 'none'
+    thum[3].style.border = 'none'
+    thum[4].style.border = 'none'
+    // 현재 마우스 올린 작은 썸 변수에 테두리 생성 (this 현재 이벤트 대상 활용)
+    target.style.border = '3px solid #0aa5ff';
+    return bigThum.src = `./images/big${num}.jpg`;
+}
+```
+- 셀렉트 활성화, 비활성화
+```
+// 상품 옵션 선택 시 색상 선택 후 (클릭ㄴ 변경ㅇ)사이즈 선택 가능, 색상 미선택 시 사이즈 선택 불가
+// 1) 색상, 사이즈 select 태그 변수 선언
+const colorSelect = document.querySelector('.product_option select[name=color]');
+const sizeSelect = document.querySelector('.product_option select[name=size]');
+// 1-1 변수 오류 점검
+console.log(colorSelect, sizeSelect);
+
+// 2) 셀렉트 비활성화
+sizeSelect.disabled = true;
+
+// 3) 색상 셀렉트 변경했을 때 이벤트 생성 -> 사이즈 활성화
+colorSelect.addEventListener('change',changeFunc);
+function changeFunc(){
+    return sizeSelect.disabled = false;
+}
 ```
 
 

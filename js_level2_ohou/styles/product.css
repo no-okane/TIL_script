@@ -1,3 +1,4 @@
+body, html {scroll-behavior: smooth;}
 main {
     background-color: aqua;
     width: 995px;
@@ -29,7 +30,7 @@ main section .left_thumnail .big {
     border-radius: 50px;
 }
 main section .left_thumnail .big a {}
-main section .left_thumnail .big a img {width: 100%; border-radius: 5px;}
+main section .left_thumnail .big a img {border-radius: 5px;}
 
 main section .right_order {background-color: pink;}
 main section .right_order > * {margin-bottom: 25px;}
@@ -86,3 +87,7 @@ main section .right_order .btn_group button{
 }
 main section .right_order .btn_group #cart_btn{}
 main section .right_order .btn_group #buy_btn{}
+
+main .info {height: 100vh;}
+main #review {height: 100vh; background-color: cornflowerblue;}
+main .board {height: 100vh;}

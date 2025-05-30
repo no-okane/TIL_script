@@ -43,11 +43,3 @@ popupBg.addEventListener('click',popupBgOut);
 function popupBgOut(){
     return popupBg.style.display='none';
 }
-
-// 새로고침 방지
-thubimage[47].addEventListener('click',function(e){
-    //console.log(e);
-    e.preventDefault(); // 태그의 동적 기능 취소 (=a태그 새로고침 취소)
-    popupBgShow();
-    popupBgOut();
-});
