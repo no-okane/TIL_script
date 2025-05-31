@@ -1,6 +1,12 @@
-const year = document.querySelector('.input input[name=year]');
+// 사용자가 1~12월 중에 하나를 선택하면 결과가 출력됨
+    // html의 select의 option에 value 속성이 필요
+    // 사용자가 선택한 월을 탄생화 결과로 출력하기 위해서 변수 생성
+    // 버튼에 클릭 이벤트(이벤트 리스너) 작성 (=코드 작성, 실행)
+    // = 사용자가 입력한 정보를 받고 -> 이벤트 감지 -> 배열에서 조건에 맞는 데이터 찾기 -> 결과 출력
+
+// ================================================================================
+// 변수 생성
 const month = document.querySelector('.input select[name=month]');
-const date = document.querySelector('.input input[name=date]');
 const resultBtn = document.querySelector('#btn');
 const result = document.querySelector('.result');
 
@@ -55,9 +61,23 @@ const birthday_flower = [
         content:'축하, 감사'
     }
 ]
-console.log(year,month,date,resultBtn,result,birthday_flower);
 
-resultBtn.addEventListener('click',yearMaontDate);
-function yearMaontDate(){
+// 변수 오류 확인
+console.log(month,resultBtn,result,birthday_flower);
 
-}
+// 함수 작성
+resultBtn.addEventListener('click', () => {
+    // month.value를 숫자열(parseInt)로 변경
+    const selectedMonth = parseInt(month.value);
+
+    // 해당 월의 탄생화 정보 찾기 (find)
+    // find()는 배열에서 조건에 맞는 첫 번째 요소를 찾아주는 함수
+    const flowerInfo = birthday_flower.find(f => f.month === selectedMonth);
+    // f.month === selectedMonth가 맞는 객체를 찾으면 flowerInfo에 저장
+
+    // 결과 출력 -> 템플릿 백틱-달러 문법 사용
+        // .result 요소 안에 텍스트로 결과 출력
+    if (flowerInfo) {
+        result.textContent = `탄생화: ${flowerInfo.flower}, 꽃말: ${flowerInfo.content}`;
+    }
+});

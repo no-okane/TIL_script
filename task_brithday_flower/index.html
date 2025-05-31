@@ -12,28 +12,34 @@
     <script src="./scripts/index.js" defer></script>
 </head>
 <body>
+    <main>
+    <div class="top">
+        <h1>나의 탄생화 찾기</h1>
+        <p>생일로 알아보는 나의 탄생화와 꽃말은?</p>
+    </div>
     <div class="input">
-        <p><input type="number" name="year" id="" value="">년</p>
-        <p>
+        <span><input type="number" name="year" id="" value="" placeholder="2012">년</span>
+        <span>
             <select name="month" id="">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
-                <option value="">6</option>
-                <option value="">7</option>
-                <option value="">8</option>
-                <option value="">9</option>
-                <option value="">10</option>
-                <option value="">11</option>
-                <option value="">12</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
             </select>
             월
-        </p>
-        <p><input type="number" name="date" id="" value="">일</p>
+        </span>
+        <span><input type="number" name="date" id="" value="" placeholder="1">일</span>
     </div>
-    <button type="button" id="btn">탄생화와 꽃말은?</button>
+    <button type="button" id="btn">탄생화와 꽃말 찾기</button>
     <p class="result"></p>
+    </main>
 </body>
 </html>
