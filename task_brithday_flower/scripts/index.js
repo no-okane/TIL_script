@@ -65,6 +65,14 @@ const birthday_flower = [
 // 변수 오류 확인
 console.log(month,resultBtn,result,birthday_flower);
 
+// test
+//console.log(birthday_flower[0].month);
+//console.log(birthday_flower[0].flower);
+//console.log(birthday_flower[0].content);
+
+//resultBtn.addEventListener('click',() =>{})
+//resultBtn.addEventListener('click',function(){})
+
 // 함수 작성
 resultBtn.addEventListener('click', () => {
     // month.value를 숫자열(parseInt)로 변경
@@ -78,6 +86,20 @@ resultBtn.addEventListener('click', () => {
     // 결과 출력 -> 템플릿 백틱-달러 문법 사용
         // .result 요소 안에 텍스트로 결과 출력
     if (flowerInfo) {
-        result.textContent = `탄생화: ${flowerInfo.flower}, 꽃말: ${flowerInfo.content}`;
+        result.innerHTML = `탄생화는 ${flowerInfo.flower}이고,<br>꽃말은 ${flowerInfo.content}입니다.`;
     }
 });
+
+
+// test2
+//resultBtn.addEventListener('click', brithdayFunc);
+/* function brithdayFunc(){
+    //if(month.value == 1||2||3||4||5){}
+    if(month.value >= 1 && month.value <=12{
+        result.textcontent = `${birthday_flower[month.value-1].month}월의 탄생화는 ${birthday_flower_flower[month.value-1].flower}, 꽃말은 ${birthday_flower[month.value-1].content}입니다.`
+    })
+        
+    //if(month.vlaue ===1){
+        result.textcontent = `${birthday_flower[month.value-1].month}월의 탄생화는 ${birthday_flower_flower[month.value-1].flower}, 꽃말은 ${birthday_flower[month.value-1].content}입니다.`
+    }
+} */

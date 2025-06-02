@@ -8,7 +8,7 @@ main {
     background-position: 58% -570px;
 }
 main * {color: #fff;}
-main .top {margin-bottom: 490px;}
+main .top {margin-bottom: 450px;}
 main h1 {font-size: 2rem; font-weight: 500; margin-bottom: 15px;}
 main .input {
     display: flex;
@@ -18,10 +18,10 @@ main .input {
     gap: 10px;
     margin-bottom: 20px;
 }
-main .input span {width: 100%; display: flex; align-items: center;}
+main .input span {width: 100%; display: flex; align-items: center; background-color: #fff; color: #404040; border-radius: 5px;}
 
-main .input span input {width: 90%; background-color: #fff; text-align: right; padding: 10px 20px; margin-right: 10px; color: #404040;}
-main .input span select {width: 90%; background-color: #fff; text-align: right; padding: 10px 20px; margin-right: 10px; color: #404040;}
+main .input span input {width: 90%;  text-align: right; padding: 10px 20px; margin-right: 10px;  border-radius: 5px; color: #404040;}
+main .input span select {width: 90%; background-color: #fff; text-align: right; padding: 15px 20px; margin-right: 10px; color: #404040;  font-size: 1rem; border-radius: 5px;}
 main .input span select option {color: #404040;}
 main #btn {background-color: rgb(255, 235, 250); width: 100%; padding: 20px 0; border-radius: 10px; color: #404040;}
-main .result {width: 100%; height: 200px; text-align: center; padding: 40px 15px;}
+main .result {width: 100%; height: 200px; text-align: center; padding: 40px 15px; line-height: 125%;}
