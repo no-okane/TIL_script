@@ -1,0 +1,65 @@
+body, html {background-color: #f5f5f5;}
+main {max-width: 1024; min-width: 320px; margin: 0 auto; border: 5px solid red; padding: 20px;}
+main .back {float: left;}
+main .lang_grop {float: right; position: relative;}
+main .lang_grop #lang_select {}
+main .lang_grop .lang_open {
+    position: absolute; right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    width: max-content;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 10px;
+}
+main .lang_grop .lang_open a {font-size: 0.75rem; line-height: 1.5;}
+main .lang_grop .lang_open .kr {}
+main .lang_grop .lang_open .en {}
+main .lang_grop .lang_open .ch1 {}
+main .lang_grop .lang_open .ch2 {}
+main .login_wrap {max-width: 400px; margin: 0 auto; border: 5px solid blue; clear: both;}
+main .login_wrap h1 {
+    width: 135px; height: 26px; 
+    background: url(../images/m_sp.png) no-repeat -315px -103px;
+    margin: 30px auto 50px;
+}
+main .login_wrap h1 a {width: 100%; height: 100%; display: block;}
+main .login_wrap h1 a span {}
+main .login_wrap .login_ineer {}
+main .login_wrap .login_ineer {}
+main .login_wrap .login_ineer #login_frm {}
+main .login_wrap .login_ineer #login_frm .id_pw_wrap {
+    border: 1px solid #ddd; border-radius: 8px;
+    display: flex; flex-flow: column nowrap;
+    overflow: hidden;
+}
+main .login_wrap .login_ineer #login_frm .id_pw_wrap input {}
+main .login_wrap .login_ineer #login_frm .id_pw_wrap input[name*=id] {}
+main .login_wrap .login_ineer #login_frm .id_pw_wrap input[name*=pw] {}
+main .login_wrap .login_ineer #login_frm .error_msg {
+    color: #f00; font-size: 0.75rem; padding: 10px 0; line-height: 1.4;
+}
+main .login_wrap .login_ineer #login_frm #login_btn {
+    background-color: #aaa; color: #fff; width: 100%; height: 50px;
+    border-radius: 6px;
+}
+main .login_wrap .login_ineer #login_frm .login_chk {
+    margin: 20px 0;
+}
+main .login_wrap .login_ineer #login_frm .login_chk #chk_state {}
+main .login_wrap .login_ineer #login_frm .login_chk label {
+    font-size: 0.875rem;
+}
+main .login_wrap .login_ineer #login_frm .login_chk label span {}
+main .login_wrap .login_ineer .search_join_wrap {text-align: center;}
+main .login_wrap .login_ineer .search_join_wrap a {font-size: 0.875rem;}
+main .login_wrap .login_ineer .search_join_wrap a::after {
+    content: '';
+    display: inline-block;
+    width: 1px; height: 11px;
+    background-color: #aaa;
+    margin: 0 10px;
+}
+main .login_wrap .login_ineer .search_join_wrap a:last-child::after {display: none;}
+main .login_wrap .login_ineer .search_join_wrap a:last-child {color: #03c75a;}
