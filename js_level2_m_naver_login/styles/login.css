@@ -34,8 +34,8 @@ main .login_wrap .login_ineer #login_frm .id_pw_wrap {
     display: flex; flex-flow: column nowrap;
     overflow: hidden;
 }
-main .login_wrap .login_ineer #login_frm .id_pw_wrap input {}
-main .login_wrap .login_ineer #login_frm .id_pw_wrap input[name*=id] {}
+main .login_wrap .login_ineer #login_frm .id_pw_wrap input {padding:16px 10px;}
+main .login_wrap .login_ineer #login_frm .id_pw_wrap input[name*=id] {border-bottom:1px solid #ddd;}
 main .login_wrap .login_ineer #login_frm .id_pw_wrap input[name*=pw] {}
 main .login_wrap .login_ineer #login_frm .error_msg {
     color: #f00; font-size: 0.75rem; padding: 10px 0; line-height: 1.4;
