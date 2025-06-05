@@ -18,7 +18,7 @@ main .lang_grop .lang_open .kr {}
 main .lang_grop .lang_open .en {}
 main .lang_grop .lang_open .ch1 {}
 main .lang_grop .lang_open .ch2 {}
-main .login_wrap {max-width: 400px; margin: 0 auto; border: 5px solid blue; clear: both;}
+main .login_wrap {max-width: 400px; margin: 0 auto; clear: both;}
 main .login_wrap h1 {
     width: 135px; height: 26px; 
     background: url(../images/m_sp.png) no-repeat -315px -103px;
