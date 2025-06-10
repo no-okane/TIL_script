@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math ex | js</title>
+    <style>
+        main{margin: 0 auto; height: 100vh; width: 440px; padding: 30px;}
+        h1 {padding: 0 0 10px 0; border-bottom: 1px solid #d9d9d9;}
+        .contents {display: flex; align-items: center; vertical-align: middle; justify-content: space-between;}
+        .result {border-radius: 10px; background-color: #f5f5f5; padding: 20px 0; margin-top: 20px; text-align: center;}
+        #birth_btn {vertical-align: middle;}
+        p {margin: 5px; padding: 0;}
+        em {color: rgb(55, 119, 75); font-weight: 600;}
+    </style>
+    <script src="./scripts/math_ex.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>D-day 카운트</h1>
+        <div class="contents">
+            <div>
+                <span>D-date 설정 : </span>
+            <input type="date" name="birthdate" id="birthdate">
+            </div>
+            <button type="button" id="birth_btn">▼</button>
+        </div>
+        
+        <div class="result">
+            <p class="date">D <em></em> 일 남았으며,</p>
+            <p class="time"><em></em> 시간 남았습니다.</p>
+        </div>
+    </main>
+</body>
+</html>
