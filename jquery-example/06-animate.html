@@ -16,7 +16,7 @@
     #flashSaleBanner {
       position: fixed;
       top: 20px;
-      right: 0; /* 초기 위치 */
+      right: -300px; /* 초기 위치(너비만큼 숨김) */ 
       width: 300px;
       padding: 20px;
       background-color: #e74c3c;
@@ -56,8 +56,26 @@
 
   <script>
     const $closeBanner = $('#closeBanner');
-    const $flashSaleBanner = $('#flashSaleBanner');
-    console.log($closeBanner,$flashSaleBanner);
+    const $bnr = $('#flashSaleBanner');
+    console.log($closeBanner,$bnr);
+
+    // 사용자 접속 시 1초 후 팝업 나타나기
+    // setInterval 매초 반복
+    // setTimeout 한 번 실행
+
+    const bnrTimer = setTimeout(()=>{
+      //$대상.animate({속성:'값',속성:'값},지속시간);
+      $bnr.animate({/* 애니메이트 : 트랜지션 없어도 애니메이션 가능함수 */
+        right:'0'
+      },1000)
+    },1000)
+
+    $closeBanner.click(()=>{
+      $bnr.animate({/* 애니메이트 : 트랜지션 없어도 애니메이션 가능함수 */
+        right:'-300px'
+      },1000)
+    })
+
   </script>
 </body>
 </html>

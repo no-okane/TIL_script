@@ -27,8 +27,29 @@
         </select>
         <p class="select">선택옵션 : <span></span><button type="button" class="close">x</button></p>
     </div>
+
     <script>
-        
+        const $colorSelect = $('#color');
+        const $selectP = $('.select');
+        const $close = $('.close');
+        console.log($colorSelect,$selectP,$close)
+        $selectP.hide(); // 선택 옵션 초기 숨기기
+
+        // select태그의 옵션값이 변경되면 p태그에 변경된 옵션값 출력
+        $colorSelect.change(function () {
+            //console.log('변경')
+            //변경대상 this 의 자식, 자손 중 선택된 checked 옵션 값 val 찾아라 find
+            console.log($(this).find('option:checked').val())
+            // p 자식 span 안에 출력
+            const optVal = $(this).find('option:checked').val();
+            $selectP.show()
+            $selectP.find('span').text(optVal);
+        })
+
+        // 옵션 결과 창 x 누르면 숨김
+        $close.click(()=>{
+            $selectP.hide() //$(this).parent().hide()
+        })
     </script>
 </body>
 </html>
