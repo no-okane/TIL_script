@@ -146,3 +146,4 @@ const total = productQa*price; // 총 가격
 
 //console.log(`구입할 물건은 총 ${productQa}개이고 이벤트 상품 ${productQa}개가 추가됩니다. 총 결제 금액은 ${price*productQa}원입니다.`)
 console.log(`구입할 물건은 총 ${productQa}개이고 이벤트 상품 ${eventNum}개가 추가됩니다. 총 결제 금액은 ${total}원입니다.`);
+

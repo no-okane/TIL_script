@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>swiper-pagenation1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!--플러그인 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--플러그인 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        * {margin:0; padding:0; line-height:1.0; box-sizing:border-box;}
+        main {position: relative; padding: 50px;}
+        main .swiper {width: 1200px; height: 400px;}
+        main .swiper .swiper-wrapper {}
+        main .swiper .swiper-wrapper .swiper-slide {}
+        main .swiper .swiper-wrapper .slide1 {}
+        main .swiper .swiper-wrapper .slide2 {}
+        main .swiper .swiper-wrapper .slide3 {}
+        main .swiper .swiper-wrapper .slide4 {}
+        main .swiper-pagination {}
+        main .swiper-pagination .swiper-pagination-bullet {}
+        main .swiper-pagination .swiper-pagination-bullet-active {background: #f00;}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="swiper new">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide1"><img src="./images/bnr1.jpg" alt=""></div>
+                <div class="swiper-slide slide2"><img src="./images/bnr1.jpg" alt=""></div>
+                <div class="swiper-slide slide3"><img src="./images/bnr1.jpg" alt=""></div>
+                <div class="swiper-slide slide4"><img src="./images/bnr1.jpg" alt=""></div>
+            </div>
+            <!-- <div class="swiper-pagination"></div> -->
+        </div>
+        <div class="swiper-pagination"></div>
+    </main>
+    <script>
+        
+        const newSlide = new Swiper ('.new',{
+            autoplay:{delay:2000},
+            loop:true,
+            pagination:{
+                //대상설정
+                el:'.new + .swiper-pagination',
+                type:'bullets',
+            }
+        })
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
