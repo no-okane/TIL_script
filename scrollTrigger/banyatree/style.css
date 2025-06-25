@@ -40,10 +40,3 @@ footer .copy {color:#aaa; font-size:0.91rem; text-transform:uppercase;}
     0% {scale: 1.1;}
     100% {scale: 1;}
 }
-
-@keyframes maintxth1{
-    0% {translate: 0 200px;}
-    100% {translate: 0 0;}
-}
-
-.ani1 {animation: maintxth1 1.7s both;}
